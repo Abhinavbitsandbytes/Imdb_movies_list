@@ -1,0 +1,52 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2" style="text-align:center">
+      <ul class="nav nav-pills" style="display:inline-block" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" (click)="displayChart()"
+            style="margin-top:84px;width:170px;text-align: center;color: rgba(255, 255, 255, 1);cursor: pointer;"
+            data-toggle="pill">Trending Chart</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="displayPoster()" data-toggle="pill"
+            style="text-align:center; color: rgba(255, 255, 255, 1); cursor: pointer;">Popular Movies</a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-10 card_content">
+      <div *ngIf="showChart">
+        <div style="display: block">
+          <canvas class="wrapper" baseChart [datasets]="barChartData" [labels]="movies_title" [options]="barChartOptions"
+            [legend]="barChartLegend" [chartType]="barChartType"></canvas>
+        </div>
+      </div>
+      <ng-container *ngIf='movies_content && showBanner'>
+        <div class="row">
+          <div class="col-md-3 col-12" *ngFor=" let movie of this.movies_content.results">
+            <mat-card class="movie-card">
+              <img mat-card-image src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" 
+              style="width:225px; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);">
+
+              <p class="movie-title">
+                {{movie.title}}
+              </p>
+            </mat-card>
+          </div>
+        </div>
+      </ng-container>
+      <div class="row" style="margin-top:20px; margin-right: 8px">
+        <div class="col-md-12 footer_navigation">
+          <div class="row" style="float:right">
+            <div class="col-md-12 text-white" style="margin-top:10px">
+              <span style="color:gray">Page: {{pageToshow}} of 56 </span>
+              <span class="arrow-class fas fa-arrow-left" (click)="goPrevious()"></span>
+              <span class="arrow-class fas fa-arrow-right" (click)="goNext()"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

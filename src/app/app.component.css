@@ -1,0 +1,45 @@
+.nav_button{
+margin: 56px 8px 8px 8px;
+width: 172px;
+color: #FFFFFF;
+outline: none;
+}
+.nav_button:hover{
+    background-color: #000000;
+}
+.movies_button{
+    margin-top: 12px;
+}
+.card_content{
+  margin-top: 64px;
+  text-align: center
+}
+.movie-title{
+    text-align: center;
+    color: white;
+}
+.footer_navigation{
+    height: 48px;
+    background-color: #000000;
+    color: black;
+    border-radius: 5px;
+    margin-bottom: 40px;
+}
+.fa-arrow-left:before{
+    margin: 14px ;
+}
+.text-white{
+    color:#FFFFFF
+}
+.arrow-class{
+    cursor: pointer;
+}
+.arrow-class:hover{
+    color:gray
+}
+  
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+
+    background-color: #000000;
+}
+
